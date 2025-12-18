@@ -8,7 +8,9 @@
 </head>
 <body>
   <h1>Parcel Watcher</h1>
-  <canvas id="parcelChart" width="400" height="200"></canvas>
+  <div style="width: 100vw; height: 100vh;">
+    <canvas id="parcelChart"></canvas>
+  </div>
   <script>
     fetch('data/parcel_counts.json')
       .then(res => res.json())
@@ -32,6 +34,7 @@
           },
           options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: {
               y: { beginAtZero: true }
             }
