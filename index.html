@@ -3,8 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>Parcel Watcher</title>
+  <!-- Import Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <h1>Parcel Watcher</h1>
+  <canvas id="parcelChart" width="400" height="200"></canvas>
+  <script>
+    fetch('data/parcels.json')
+      .then(res => res.json())
+      .then(data => {
+        // Example: assume data = [{date: "2025-12-01", count: 100}, ...]
+        const labels = data.map(item => item.date);
+        const counts = data.map(item => item.count);
+
+        const ctx = document.getElementById('parcelChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Parcel Count',
+              data: counts,
+              borderColor: 'blue',
+              backgroundColor: 'rgba(0,0,255,0.1)',
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: { beginAtZero: true }
+            }
+          }
+        });
+      });
+  </script>
 </body>
 </html>
