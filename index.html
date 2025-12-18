@@ -10,7 +10,7 @@
   <h1>Parcel Watcher</h1>
   <canvas id="parcelChart" width="400" height="200"></canvas>
   <script>
-    fetch('data/parcels.json')
+    fetch('data/parcel_counts.json')
       .then(res => res.json())
       .then(data => {
         // Example: assume data = [{date: "2025-12-01", count: 100}, ...]
