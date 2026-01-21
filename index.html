@@ -32,7 +32,7 @@
               data: counts,
               borderColor: 'blue',
               backgroundColor: 'rgba(0,0,255,0.1)',
-              fill: true,
+              fill: false,
               segment: {
                 borderColor: ctx => down(ctx, 'rgb(143, 54, 49)') || up(ctx, 'rgb(49, 143, 55)')
               }
@@ -42,7 +42,7 @@
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-              y: { beginAtZero: true }
+              y: { beginAtZero: false }
             }
           }
         });
